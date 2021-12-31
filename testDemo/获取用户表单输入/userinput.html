@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="#">
+            <textarea
+                name="shijian"
+                id="shijian"
+                cols="30"
+                rows="10"
+                placeholder="上课时间"
+            ></textarea>
+
+            <textarea
+                name="课程标题"
+                id="name"
+                cols="30"
+                rows="10"
+                placeholder="课程标题"
+            ></textarea>
+
+            <textarea
+                name="课程内容"
+                id="neirong"
+                cols="30"
+                rows="10"
+                placeholder="课程内容"
+            ></textarea>
+
+            <input type="button" value="确定" id="yes" />
+
+            <script>
+                let button = document.getElementById("yes");
+                let time = document.getElementById("shijian");
+                button.onclick = function () {
+                    console.log(time.value.split("\n"));
+                };
+            </script>
+        </form>
+    </body>
+</html>

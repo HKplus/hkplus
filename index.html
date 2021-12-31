@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./styles/tableStyle.css" />
+        <link rel="stylesheet" href="./styles/base.css" />
+        <link rel="stylesheet" href="./styles/style.css" />
+    </head>
+    <body>
+        <section id="form">
+            <h1>课程报告打印工具</h1>
+
+            <hr />
+            <!-- 获得课程报告所属的月 -->
+            <label for="month">选择起始与终止日期</label>
+            <br />
+            <input type="date" name="月份" id="month-start" />
+            <input type="date" name="月份" id="month-end" />
+            <hr />
+
+            <!-- 输入老师姓名 -->
+            <input type="text" id="tearch-name" placeholder="授课老师" />
+            <br />
+            <!-- 获得学生姓名 -->
+            <input type="text" id="student-name" placeholder="学生姓名" />
+            <br />
+            <!--获得分行书写的上课时间 -->
+            <textarea
+                name="shangke-shijian"
+                id="shangke-shijian"
+                cols="30"
+                rows="5"
+                placeholder="分行书写每节课的上课时间"
+            ></textarea>
+            <br />
+            <textarea
+                name="shangke-titile"
+                id="shangke-title"
+                cols="30"
+                rows="5"
+                placeholder="分行书写每节课的标题"
+            ></textarea>
+            <br />
+            <!-- 获得分行输入的学习内容 -->
+            <textarea
+                name="Learning-Content"
+                id="learning-content"
+                cols="30"
+                rows="5"
+                placeholder="分行书写每节课的课程内容"
+            ></textarea>
+            <br />
+            <!--获得分行书写的学习状态 -->
+            <textarea
+                name="learning-status"
+                id="learning-status"
+                cols="30"
+                rows="5"
+                placeholder="分行书写每节课的学习状态 , 如果为0则自动填充"
+            ></textarea>
+            <br />
+            <!-- 获得需要加强的方面 -->
+            <textarea
+                name="need-more"
+                id="need-more"
+                cols="30"
+                rows="5"
+                placeholder="分行书写每节课需要加强的地方 , 如果为空则略过"
+            ></textarea>
+            <!-- 评测部分 -->
+            <h2>评测部分</h2>
+            <hr />
+            <input type="text" id="test-content" placeholder="输入测试内容" />
+            <br />
+            <input
+                type="number"
+                name="score"
+                id="test-score"
+                placeholder="输入卷面分数"
+            />
+            <br />
+            <input
+                type="number"
+                name="face-score"
+                id="face-score"
+                placeholder="输入面试分数"
+            />
+            <br />
+            <input
+                type="number"
+                name="test-todo"
+                id="test-todo"
+                placeholder="输入实操分数"
+            />
+            <br />
+            <input type="text" id="tearch-seay" placeholder="老师点评" />
+            <br />
+
+            <input type="button" value="确认生成" id="get" />
+        </section>
+
+        <section id="table">
+            <table id="table1">
+                <tr>
+                    <th colspan="6">
+                        <span id="date"></span
+                        ><span id="student-name-ele"></span>课程报告
+                    </th>
+                </tr>
+                <tr>
+                    <td>时间</td>
+                    <td class="time"></td>
+                    <td>课程主题</td>
+                    <td class="subject-name"></td>
+                    <td>授课老师</td>
+                    <td class="tearch-name"></td>
+                </tr>
+                <tr>
+                    <td>学习<br />内容</td>
+                    <td colspan="5" class="learning-content"></td>
+                </tr>
+                <tr>
+                    <td>学习<br />状态</td>
+                    <td colspan="5" class="status"></td>
+                </tr>
+                <tr>
+                    <td>需要<br />加强的方面</td>
+                    <td colspan="5" class="needmore"></td>
+                </tr>
+                <!-- ---------------------- -->
+                <tr>
+                    <td>时间</td>
+                    <td class="time"></td>
+                    <td>课程主题</td>
+                    <td class="subject-name"></td>
+                    <td>授课老师</td>
+                    <td class="tearch-name"></td>
+                </tr>
+                <tr>
+                    <td>学习<br />内容</td>
+                    <td colspan="5" class="learning-content"></td>
+                </tr>
+                <tr>
+                    <td>学习<br />状态</td>
+                    <td colspan="5" class="status"></td>
+                </tr>
+                <tr>
+                    <td>需要<br />加强的方面</td>
+                    <td colspan="5" class="needmore"></td>
+                </tr>
+                <!-- ------------------------ -->
+                <tr>
+                    <td>时间</td>
+                    <td class="time"></td>
+                    <td>课程主题</td>
+                    <td class="subject-name"></td>
+                    <td>授课老师</td>
+                    <td class="tearch-name"></td>
+                </tr>
+                <tr>
+                    <td>学习<br />内容</td>
+                    <td colspan="5" class="learning-content"></td>
+                </tr>
+                <tr>
+                    <td>学习<br />状态</td>
+                    <td colspan="5" class="status"></td>
+                </tr>
+                <tr>
+                    <td>需要<br />加强的方面</td>
+                    <td colspan="5" class="needmore"></td>
+                </tr>
+                <!-- ------------------------ -->
+                <tr>
+                    <td>时间</td>
+                    <td class="time"></td>
+                    <td>课程主题</td>
+                    <td class="subject-name"></td>
+                    <td>授课老师</td>
+                    <td class="tearch-name"></td>
+                </tr>
+                <tr>
+                    <td>学习<br />内容</td>
+                    <td colspan="5" class="learning-content"></td>
+                </tr>
+                <tr>
+                    <td>学习<br />状态</td>
+                    <td colspan="5" class="status"></td>
+                </tr>
+                <tr>
+                    <td>需要<br />加强的方面</td>
+                    <td colspan="5" class="needmore"></td>
+                </tr>
+            </table>
+            <table id="table2">
+                <tr>
+                    <th colspan="4">评测报告</th>
+                </tr>
+                <tr>
+                    <td>评测老师</td>
+                    <td class="tearch-name"></td>
+                    <td>评测内容</td>
+                    <td id="test-content-ele"></td>
+                </tr>
+                <!--  -->
+                <tr>
+                    <td>闭卷测评</td>
+                    <td
+                        colspan="3"
+                        id="test-score-ele"
+                        class="bigger-number"
+                    ></td>
+                </tr>
+                <!--  -->
+                <tr>
+                    <td>面试评测</td>
+                    <td
+                        colspan="3"
+                        id="face-score-ele"
+                        class="bigger-number"
+                    ></td>
+                </tr>
+                <!--  -->
+                <tr>
+                    <td>综合实操</td>
+                    <td
+                        colspan="3"
+                        id="test-todo-ele"
+                        class="bigger-number"
+                    ></td>
+                </tr>
+                <!--  -->
+                <tr>
+                    <td>老师点评</td>
+                    <td colspan="3" id="tearch-seay-ele"></td>
+                </tr>
+            </table>
+        </section>
+        <script src="../../node_modules/html2canvas/dist/html2canvas.js"></script>
+        <script src="../../node_modules/jspdf/dist/jspdf.umd.min.js"></script>
+        <script src="./scripts/script.js"></script>
+    </body>
+</html>

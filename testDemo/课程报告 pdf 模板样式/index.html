@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <table id="table1">
+            <tr>
+                <th colspan="6">
+                    <span>杨植深</span><span>2022 年 10 月</span>课程报告
+                </th>
+            </tr>
+            <tr>
+                <td>时间</td>
+                <td>10 月 20 号</td>
+                <td>课程主题</td>
+                <td>娃哈哈</td>
+                <td>授课老师</td>
+                <td>denney</td>
+            </tr>
+            <tr>
+                <td>学习<br />内容</td>
+                <td colspan="5"></td>
+            </tr>
+            <tr>
+                <td>学习<br />状态</td>
+                <td colspan="5"></td>
+            </tr>
+            <tr>
+                <td>需要<br />加强的方面</td>
+                <td colspan="5"></td>
+            </tr>
+            <!-- ---------------------- -->
+            <tr>
+                <td>时间</td>
+                <td>10 月 20 号</td>
+                <td>课程主题</td>
+                <td>娃哈哈</td>
+                <td>授课老师</td>
+                <td>denney</td>
+            </tr>
+            <tr>
+                <td>学习<br />内容</td>
+                <td colspan="5"></td>
+            </tr>
+            <tr>
+                <td>学习<br />状态</td>
+                <td colspan="5"></td>
+            </tr>
+            <tr>
+                <td>需要<br />加强的方面</td>
+                <td colspan="5"></td>
+            </tr>
+            <!-- ------------------------ -->
+            <tr>
+                <td>时间</td>
+                <td>10 月 20 号</td>
+                <td>课程主题</td>
+                <td>娃哈哈</td>
+                <td>授课老师</td>
+                <td>denney</td>
+            </tr>
+            <tr>
+                <td>学习<br />内容</td>
+                <td colspan="5"></td>
+            </tr>
+            <tr>
+                <td>学习<br />状态</td>
+                <td colspan="5"></td>
+            </tr>
+            <tr>
+                <td>需要<br />加强的方面</td>
+                <td colspan="5"></td>
+            </tr>
+            <!-- ------------------------ -->
+            <tr>
+                <td>时间</td>
+                <td>10 月 20 号</td>
+                <td>课程主题</td>
+                <td>娃哈哈</td>
+                <td>授课老师</td>
+                <td>denney</td>
+            </tr>
+            <tr>
+                <td>学习<br />内容</td>
+                <td colspan="5"></td>
+            </tr>
+            <tr>
+                <td>学习<br />状态</td>
+                <td colspan="5"></td>
+            </tr>
+            <tr>
+                <td>需要<br />加强的方面</td>
+                <td colspan="5"></td>
+            </tr>
+        </table>
+        <table id="table2">
+            <tr>
+                <th colspan="4">评测报告</th>
+            </tr>
+            <tr>
+                <td>评测老师</td>
+                <td></td>
+                <td>评测内容</td>
+                <td></td>
+            </tr>
+            <!--  -->
+            <tr>
+                <td>闭卷测评</td>
+                <td colspan="3"></td>
+            </tr>
+            <!--  -->
+            <tr>
+                <td>面试评测</td>
+                <td colspan="3"></td>
+            </tr>
+            <!--  -->
+            <tr>
+                <td>综合实操</td>
+                <td colspan="3"></td>
+            </tr>
+            <!--  -->
+            <tr>
+                <td>老师点评</td>
+                <td colspan="3"></td>
+            </tr>
+        </table>
+
+        <input type="button" value="点击生成" id="renderPdf" />
+        <!-- ------------------ -->
+        <script src="../../node_modules/html2canvas/dist/html2canvas.js"></script>
+        <script src="../../node_modules/jspdf/dist/jspdf.umd.min.js"></script>
+        <script>
+            window.jsPDF = window.jspdf.jsPDF;
+            var downPdf = document.getElementById("renderPdf");
+            downPdf.onclick = function () {
+                html2canvas(document.getElementById("table1")).then(
+                    (canvas) => {
+                        //返回图片dataURL，参数：图片格式和清晰度(0-1)
+                        var pageData = canvas.toDataURL("image/jpeg", 1.0);
+                        //方向默认竖直，尺寸ponits，格式a4[595.28,841.89]
+                        var pdf = new jsPDF("", "pt", "a4");
+                        //addImage后两个参数控制添加图片的尺寸，此处将页面高度按照a4纸宽高比列进行压缩
+                        pdf.addImage(
+                            pageData,
+                            "JPEG",
+                            45,
+                            40,
+                            500,
+                            (500 / canvas.width) * canvas.height
+                        );
+                        //  添加第二页
+                        html2canvas(document.getElementById("table2")).then(
+                            (canvas2) => {
+                                var pageData2 = canvas2.toDataURL(
+                                    "image/jpeg",
+                                    1.0
+                                );
+                                //addImage后两个参数控制添加图片的尺寸，此处将页面高度按照a4纸宽高比列进行压缩
+                                pdf.addPage();
+                                pdf.addImage(
+                                    pageData2,
+                                    "JPEG",
+                                    45,
+                                    45,
+                                    500,
+                                    (500 / canvas.width) * canvas.height
+                                );
+                                pdf.output("dataurlnewwindow");
+                            }
+                        );
+                    }
+                );
+            };
+        </script>
+    </body>
+</html>
